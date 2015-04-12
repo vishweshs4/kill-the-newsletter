@@ -4,12 +4,21 @@ class EmailProcessor
   end
 
   def process
-    byebug
-    # Here's an example of model creation
-    # user = User.find_by_email(@email.from[:email])
-    # user.posts.create!(
-    #   subject: @email.subject,
-    #   body: @email.body
-    # )
+    token = @email.to.first.present? && @email.to.first.fetch(:token) { nil }
+    if ! token.present?
+      Rails.logger.info "E-mail discarded: Token not available."
+      return
+    end
+    feed = Feed.find_by(token: token)
+    if ! feed.present?
+      Rails.logger.info "E-mail discarded: Token `#{ token }' not found."
+      return
+    end
+    email = feed.emails.create!(
+      subject: @email.subject,
+      html: @email.raw_html,
+      text: @email.raw_text
+    )
+    Rails.logger.info "E-mail recorded: Token `#{ token }', email `#{ email.id }'."
   end
 end

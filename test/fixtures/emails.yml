@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from: MyString
+  subject: MyString
+  html: MyString
+  text: MyString
+  feed_id: 
+
+two:
+  from: MyString
+  subject: MyString
+  html: MyString
+  text: MyString
+  feed_id: 
