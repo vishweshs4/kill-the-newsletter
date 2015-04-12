@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # get '/email_processor', :to => proc { [200, {}, ["OK"]] }
   mount_griddler
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
