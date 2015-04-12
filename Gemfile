@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.2.1'
 
+gem 'griddler'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use SCSS for stylesheets
