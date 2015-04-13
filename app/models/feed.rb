@@ -16,6 +16,6 @@ class Feed < ActiveRecord::Base
   end
 
   def entries
-    emails.map { |email| Entry.from_email email }
+    emails.order(created_at: :desc).map { |email| Entry.from_email email }
   end
 end
