@@ -4,6 +4,7 @@ ruby '2.2.1'
 
 gem 'griddler'
 gem 'griddler-mandrill'
+gem 'simple_form'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
