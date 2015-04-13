@@ -6,6 +6,15 @@ class Feed < ActiveRecord::Base
 
   validates :token, uniqueness: true
 
+  def initialize(*)
+    super
+    self.token = SecureRandom.hex 25
+  end
+
+  def to_param
+    token
+  end
+
   def entries
     emails.map { |email| Entry.from_email email }
   end
