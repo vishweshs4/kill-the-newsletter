@@ -8,7 +8,7 @@ class Feed < ActiveRecord::Base
 
   def initialize(*)
     super
-    self.token = SecureRandom.hex 25
+    self.token ||= SecureRandom.hex 25
   end
 
   def to_param
