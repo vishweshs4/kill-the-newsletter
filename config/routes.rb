@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount_griddler
 
-  resources :feeds, only: [:show]
+  resources :feeds, only: [:create, :show]
 
   root 'index#index'
 
