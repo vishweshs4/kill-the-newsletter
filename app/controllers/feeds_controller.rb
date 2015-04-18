@@ -1,6 +1,5 @@
 class FeedsController < ApplicationController
   def new
-    @feed = Feed.new
   end
 
   def create
@@ -15,7 +14,7 @@ class FeedsController < ApplicationController
     if @feed.present?
       render formats: :atom
     else
-      new
+      @feed = Feed.new
       flash.now.alert = 'Feed not found! Create one right away on the form below.'
       render :new
     end
