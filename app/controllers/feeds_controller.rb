@@ -4,7 +4,10 @@ class FeedsController < ApplicationController
   end
 
   def create
-    @feed = Feed.create!(feed_params)
+    @feed = Feed.new feed_params
+    if ! @feed.save
+      render :new
+    end
   end
 
   def show
