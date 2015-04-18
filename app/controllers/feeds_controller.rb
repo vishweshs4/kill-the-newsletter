@@ -12,10 +12,13 @@ class FeedsController < ApplicationController
 
   def show
     @feed = Feed.find_by(token: params.fetch(:id))
-    if @feed.nil?
-      return redirect_to root_url, alert: 'Feed not found!'
+    if @feed.present?
+      render formats: :atom
+    else
+      new
+      flash.now.alert = 'Feed not found! Create one right away on the form below.'
+      render :new
     end
-    render formats: :atom
   end
 
   private
