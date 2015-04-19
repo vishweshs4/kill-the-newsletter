@@ -1,7 +1,24 @@
-<h2>Your feed `<%= @feed.title %>' was created.</h2>
+<h2>The feed <em><%= @feed.title %></em> was created!</h2>
 
-<p>All you have to do now is sign up for the newsletter with the e-mail `<%= @feed.token %>@<%= request.host %>' and subscribe to the feed in <%= link_to feed_url(@feed, :rss), feed_url(@feed, :rss) %>.</p>
+<dl>
+  <dt>E-mail address</dt>
+  <dd><%= "#{ @feed.token }@#{ request.host }" %></dd>
 
-<p>Please, take note of those addresses, this is the last time they're going to be available to you!</p>
+  <dt>RSS feed</dt>
+  <dd><%= link_to feed_url(@feed, :rss), feed_url(@feed, :rss) %></dd>
+</dl>
 
-Create another feed?
+<p>
+  All you have to do now is sign up for the newsletter with this e-mail address
+  and add this RSS feed to your client. From now on, every e-mail received will
+  become an entry on the RSS feed.
+</p>
+
+<p>
+  Please, <strong>take note of those addresses, this is the last time they're
+  going to be shown to you!</strong>
+</p>
+
+<p>
+  <%= link_to 'Create another feed', root_path, class: 'btn btn-default' %>
+</p>
