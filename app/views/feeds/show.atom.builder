@@ -1,6 +1,6 @@
 atom_feed do |feed|
   feed.title @feed.title
-  feed.description %Q{Newsletter e-mails sent to "#{ @feed.token }@#{ request.host }", managed by Kill the newsletter!}
+  feed.subtitle %Q{Newsletter e-mails sent to "#{ @feed.token }@#{ request.host }", managed by Kill the newsletter!}
   feed.updated(@feed.entries.first.created_at) if @feed.entries.length > 0
 
   @feed.entries.each do |entry|
