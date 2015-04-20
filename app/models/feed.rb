@@ -1,5 +1,5 @@
 class Feed < ActiveRecord::Base
-  has_many :emails, inverse_of: :feed
+  has_many :emails, inverse_of: :feed, dependent: :destroy
 
   validates :title, presence: true
   validates :token, presence: true
