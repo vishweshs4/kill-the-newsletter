@@ -41,7 +41,8 @@ instance. You probably can make some adaptations to fit your needs.
 
 Start by buying a domain and setting up MX records that points to the
 [Mandrill][mandrill] servers. I recommend using [CloudFlare][cloudflare] as
-nameserver, so you get [free TLS support on Heroku][free-tls-heroku].
+nameserver, so you get [free TLS support on Heroku][free-tls-heroku]. I
+strongly recommend enabling TLS and always enforce it.
 
 Then, add the domain as an Inbound Domain on [Mandrill][mandrill]. Add a
 catch-all Mailbox Route for the domain so that when the receiving e-mail address
