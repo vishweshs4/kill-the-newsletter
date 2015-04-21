@@ -4,7 +4,7 @@ atom_feed do |feed|
   feed.updated(@feed.entries.first.created_at) if @feed.entries.length > 0
 
   @feed.entries.each do |entry|
-    feed.entry(entry, url: '') do |entry_builder|
+    feed.entry(entry, url: root_path(anchor: 'link-to-post')) do |entry_builder|
       entry_builder.title(entry.title)
       entry_builder.content(entry.body, type: 'html')
 
