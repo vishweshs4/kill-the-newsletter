@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150413013456) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "emails", force: :cascade do |t|
     t.string   "from"
     t.string   "subject"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150413013456) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "emails", ["feed_id"], name: "index_emails_on_feed_id"
+  add_index "emails", ["feed_id"], name: "index_emails_on_feed_id", using: :btree
 
   create_table "feeds", force: :cascade do |t|
     t.string   "title",      null: false
@@ -32,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150413013456) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "feeds", ["token"], name: "index_feeds_on_token", unique: true
+  add_index "feeds", ["token"], name: "index_feeds_on_token", unique: true, using: :btree
 
+  add_foreign_key "emails", "feeds"
 end

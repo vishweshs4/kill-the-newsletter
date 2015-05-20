@@ -1,0 +1,19 @@
+db:
+  image: postgres
+  ports:
+    - "5432"
+web:
+  build: .
+  command: foreman start
+  volumes:
+    - .:/myapp
+  ports:
+    - "5000:5000"
+  links:
+    - db
+ngrok:
+  image: centurylink/ngrok
+  links:
+    - web
+  environment:
+    HTTP_PORT: web:5000

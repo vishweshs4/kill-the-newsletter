@@ -12,6 +12,10 @@ directed to people that want to [contribute to the project](#contributing) or
 Contributing
 ------------
 
+The recommended way to run the application is using
+[Docker Compose][docker-compose]. It sets up everything you need, including the
+[ngrok][ngrok] tunnel to make testing incoming e-mails easy.
+
 This is a pretty standard [Ruby on Rails][ruby-on-rails] application. The proper
 [Ruby][ruby] version and dependencies to run are listed on the `Gemfile`.
 
@@ -34,8 +38,8 @@ local server to the world, the address is going to be something like
 Deployment
 ----------
 
-This service is currently hosted on [Heroku][heroku] - including their
-[Postgres service][heroku-postgres] - and [Mandrill][mandrill]. This is the
+This service is currently hosted on [Heroku][heroku] -- including their
+[Postgres service][heroku-postgres] -- and [Mandrill][mandrill]. This is the
 setup I'm going to describe here and you should feel free to deploy your own
 instance. You probably can make some adaptations to fit your needs.
 
@@ -66,3 +70,4 @@ Then enjoy the rest of your day.
 [heroku-postgres]: https://postgres.heroku.com
 [cloudflare]: https://www.cloudflare.com/
 [free-tls-heroku]: https://robots.thoughtbot.com/set-up-cloudflare-free-ssl-on-heroku
+[docker-compose]: http://docs.docker.com/compose/
